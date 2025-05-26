@@ -119,61 +119,60 @@
       requestAnimationFrame(gameLoop);
     }
 
-function spawnObstacle() {
-  if (!gameRunning) return;
-  const numObstacles = 2;
+  function spawnObstacle() {
+    if (!gameRunning) return;
+    const numObstacles = 2;
 
-  //  Replace with actual image URLs (example below)
-  const gifOptions = [
-    "https://i.gifer.com/ZHug.gif",
-    "https://i.gifer.com/tHi.gif"
-  ];
+    //  Replace with actual image URLs (example below)
+    const gifOptions = [
+      "https://i.gifer.com/ZHug.gif",
+      "https://i.gifer.com/tHi.gif"
+   
+    ];
 
-  for (let i = 0; i < numObstacles; i++) {
-    const obstacle = document.createElement("img");
-    const isMoving = Math.random() < 0.3;
+    for (let i = 0; i < numObstacles; i++) {
+      const obstacle = document.createElement("img");
+      const isMoving = Math.random() < 0.3;
 
-    // 🔀 Randomly choose a GIF from external links
-    const randomGif = gifOptions[Math.floor(Math.random() * gifOptions.length)];
-    obstacle.src = randomGif;
+      // 🔀 Randomly choose a GIF from external links
+      const randomGif = gifOptions[Math.floor(Math.random() * gifOptions.length)];
+      obstacle.src = randomGif;
 
-    obstacle.classList.add("obstacle");
-    if (isMoving) obstacle.classList.add("moving");
+      obstacle.classList.add("obstacle");
+      if (isMoving) obstacle.classList.add("moving");
 
-    let obstacleY = Math.random() * (window.innerHeight - 60);
-    let obstacleX = window.innerWidth;
-    let verticalDirection = 1;
-    let verticalSpeed = 2 + Math.random() * 2;
+      let obstacleY = Math.random() * (window.innerHeight - 60);
+      let obstacleX = window.innerWidth;
+      let verticalDirection = 1;
+      let verticalSpeed = 2 + Math.random() * 2;
 
-    obstacle.style.top = obstacleY + "px";
-    obstacle.style.right = "-60px";
+      obstacle.style.top = obstacleY + "px";
+      obstacle.style.right = "-60px";
 
-    document.body.appendChild(obstacle);
+      document.body.appendChild(obstacle);
 
-    const moveInterval = setInterval(() => {
-      if (!gameRunning) {
-        clearInterval(moveInterval);
-        obstacle.remove();
-        return;
-      }
+      const moveInterval = setInterval(() => {
+        if (!gameRunning) {
+          clearInterval(moveInterval);
+          obstacle.remove();
+          return;
+        }
 
-      obstacleX -= levelSpeed;
-      obstacle.style.right = (window.innerWidth - obstacleX) + "px";
+        obstacleX -= levelSpeed;
+        obstacle.style.right = (window.innerWidth - obstacleX) + "px";
 
-      if (isMoving) {
-        let currentTop = parseFloat(obstacle.style.top);
-        currentTop += verticalDirection * verticalSpeed;
-        if (currentTop <= 0) verticalDirection = 1;
-        if (currentTop >= window.innerHeight - 60) verticalDirection = -1;
-        obstacle.style.top = currentTop + "px";
-      }
+        if (isMoving) {
+          let currentTop = parseFloat(obstacle.style.top);
+          currentTop += verticalDirection * verticalSpeed;
+          if (currentTop <= 0) verticalDirection = 1;
+          if (currentTop >= window.innerHeight - 60) verticalDirection = -1;
+          obstacle.style.top = currentTop + "px";
+        }
 
-      checkCollision(obstacle, moveInterval);
-    }, 20);
+        checkCollision(obstacle, moveInterval);
+      }, 20);
+    }
   }
-}
-
-
 
     function checkCollision(obstacle, moveInterval) {
       const bird1Rect = bird1.getBoundingClientRect();
