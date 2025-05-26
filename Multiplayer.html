@@ -123,20 +123,22 @@ function spawnObstacle() {
   if (!gameRunning) return;
   const numObstacles = 2;
 
-  const gifOptions = ["bird.gif", "bird2.gif"]; // List of your GIFs
+  //  Replace with actual image URLs (example below)
+  const gifOptions = [
+    "https://i.gifer.com/ZHug.gif",
+    "https://i.gifer.com/tHi.gif"
+  ];
 
   for (let i = 0; i < numObstacles; i++) {
     const obstacle = document.createElement("img");
     const isMoving = Math.random() < 0.3;
 
-    // 🔀 Randomly choose a GIF
+    // 🔀 Randomly choose a GIF from external links
     const randomGif = gifOptions[Math.floor(Math.random() * gifOptions.length)];
     obstacle.src = randomGif;
 
     obstacle.classList.add("obstacle");
     if (isMoving) obstacle.classList.add("moving");
-
-
 
     let obstacleY = Math.random() * (window.innerHeight - 60);
     let obstacleX = window.innerWidth;
@@ -170,6 +172,7 @@ function spawnObstacle() {
     }, 20);
   }
 }
+
 
 
     function checkCollision(obstacle, moveInterval) {
