@@ -1,0 +1,271 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-image: url("https://i.gifer.com/Lx0q.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.arrow-btn:hover {
+  background: #e0e0e0;
+}
+
+.arrow-icons {
+  border: solid #333;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 10px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-left: 4px;
+}
+
+.game-title {
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 8px #000;
+  margin-top: 60px;
+  margin-bottom: 280px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.center-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 32px;
+  justify-content: center;
+  height: 100vh;
+}
+
+.start-btn {
+  width: 260px;
+  font-size: 1.5rem;
+  padding: 18px 0;
+  margin: 0;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.start-btn:hover {
+  background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.container {
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 40px;
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+
+.choice-btn {
+  padding: 20px 60px;
+  margin: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.choice-btn:hover {
+  background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+button:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.9);
+  transform: scale(1.05);
+}
+
+#score1, #score2 {
+  position: absolute;
+  top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  transition: transform 0.2s;
+}
+
+#score1 {
+  left: 20px;
+  color: blue;
+}
+
+#score2 {
+  left: 235px;
+  color: red;
+}
+
+#gameOver {
+  display: none;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: green;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+  animation: pop-in 0.5s ease forwards;
+}
+
+#restartBtn, #startBtn {
+  color: white;
+  background-color: rgb(25, 118, 210);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: none;
+}
+
+#startBtn {
+  display: block;
+}
+
+.bird {
+  width: 150px;
+  position: absolute;
+  left: 100px;
+  user-select: none;
+  z-index: 10;
+}
+
+#bird1 { top: 200px; }
+#bird2 { top: 300px; }
+
+
+
+
+
+#countdown {
+  display: none;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.player-label {
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  z-index: 11;
+  pointer-events: none;
+  user-select: none;
+  transition: left 0.1s, top 0.1s;
+}
+
+#label1 {
+  color: blue;
+}
+
+#label2 {
+  color: red;
+}
+
+#chooseBtn {
+  color: white;
+  background-color: #388e3c;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 28px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: none;
+}
+
+#chooseBtn:hover {
+  background-color: #2e7031;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.arrow-icon {
+  border: solid #333;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 10px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-left: 4px;
+}
+
+
+
+  .obstacle {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    pointer-events: none;
+    transform: scaleX(-1); /* Flips image to face left */
+  }
+

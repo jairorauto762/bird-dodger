@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Game Mode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="arrow-btn" id="backBtn" title="Back" style="top: 24px; left: 24px; position: absolute;">
+    <span class="arrow-icon"></span>
+  </button>
+  <div class="container">
+    <h1>Choose Game Mode</h1>
+    <button class="choice-btn" id="soloBtn">Singleplayer</button>
+    <button class="choice-btn" id="multiBtn">Multiplayer</button>
+  </div>
+  <script>
+    document.getElementById('backBtn').onclick = function() {
+      window.location.href = "homepage.html";
+    };
+    document.getElementById('soloBtn').addEventListener('click', function() {
+      window.location.href = "solo.html";
+    });
+    document.getElementById('multiBtn').addEventListener('click', function() {
+      window.location.href = "multiplayer.html";
+    });
+  </script>
+</body>
+</html>

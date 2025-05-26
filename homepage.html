@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bird Dodger - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="arrow-btn" id="backBtn" title="Back" style="top: 24px; left: 24px; position: absolute;">
+    <span class="arrow-icon"></span>
+  </button>
+  <div class="center-btn">
+    <button class="start-btn" id="startGameBtn">Start Game</button>
+    <button class="start-btn" id="howToPlayBtn">How to Play</button>
+    <button class="start-btn" id="settingsBtn">Settings</button>
+    <button class="start-btn" id="aboutBtn">About the Game</button>
+  </div>
+  <script>
+    document.getElementById('backBtn').onclick = function() {
+      window.location.href = "index.html";
+    };
+    document.getElementById('startGameBtn').onclick = function() {
+      window.location.href = "choose.html";
+    };
+    document.getElementById('howToPlayBtn').onclick = function() {
+      alert(
+        "How to Play:\n\n" +
+        "Use W/A/S/D or the arrow keys to move your bird up, down, left, or right. " +
+        "Avoid all obstacles that appear on the screen. " +
+        "Survive as long as possible to achieve a high score. " +
+        "You earn points by dodging obstacles and can try to beat your best score. " +
+        "The game gets faster the longer you survive. " +
+        "Good luck and have fun!"
+      );
+    };
+    document.getElementById('settingsBtn').onclick = function() {
+      alert(
+        "Settings:\n\n" +
+        "Future updates will let you adjust the game volume, change controls, and customize your bird. " +
+        "You will also be able to toggle sound effects and background music. " +
+        "More features and improvements are coming soon!"
+      );
+    };
+    document.getElementById('aboutBtn').onclick = function() {
+      alert(
+        "About the Game:\n\n" +
+        "In Bird Dodger, you control a bird and try to dodge obstacles for as long as possible. " +
+        "Challenge yourself or friends to beat the highest score! " +
+        "This project was created to practice web development skills and provide entertainment for all ages. " +
+        "Made with love for everyone to enjoy."
+      );
+    };
+  </script>
+</body>
+</html>
